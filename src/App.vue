@@ -1,21 +1,27 @@
 <template>
   <div id="app">
-    <b-row>
-      <b-col>1</b-col>
-      <b-col>2</b-col>
-    </b-row>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navbar v-if="signedIn" :signedIn="signedIn"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import firebase from 'firebase';
+import Navbar from "@/components/Navbar";
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  components: {Navbar},
+  data(){
+    return {
+      signedIn: false
+    }
+  },
+
+  mounted(){
+    firebase.auth().onAuthStateChanged((user) => {
+      this.signedIn = !!user
+    })
   }
 }
 </script>
@@ -27,6 +33,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
