@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <b-row>
+      <b-col>1</b-col>
+      <b-col>2</b-col>
+    </b-row>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
