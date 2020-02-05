@@ -1,22 +1,39 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Review Requests</h1>
-    <RequestCard
-      v-for="(req, id, ind) in reqs"
-      :key="ind"
-      :req="req"
-      :id="id"
-    />
+    <b-tabs>
+      <b-tab title="Requests" active>
+        <RequestCard
+          v-for="(req, id, ind) in reqs"
+          :key="ind"
+          :req="req"
+          :id="id"
+        />
+      </b-tab>
+      <b-tab title="Av">
+        <AV :requests="reqs"/>
+      </b-tab>
+      <b-tab title="Computer">
+
+      </b-tab>
+      <b-tab title="Internet">
+
+      </b-tab>
+      <b-tab title="Power">
+
+      </b-tab>
+    </b-tabs>
   </div>
 </template>
 
 <script>
   import firebase from 'firebase';
   import RequestCard from "@/components/RequestCard";
+  import AV from "@/components/summary/av";
 
   export default {
     name: "ReviewRequests",
-    components: {RequestCard},
+    components: {AV, RequestCard},
     data(){
       return {
         reqs: {}
