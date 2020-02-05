@@ -7,6 +7,7 @@
     informationReq="Please tell us what sound needs you have"
     :isOwner="isOwner"
     :av="av"
+    section="av"
   />
 </template>
 

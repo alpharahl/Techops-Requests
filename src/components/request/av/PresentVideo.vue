@@ -7,6 +7,7 @@
     information-req="Please tell us what you are aiming to do with video"
     :isOwner="isOwner"
     :av="av"
+    section="av"
   />
 </template>
 

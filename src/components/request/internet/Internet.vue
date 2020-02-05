@@ -9,7 +9,12 @@
 <script>
   export default {
     name: "Internet",
-    props: ['isOwner', 'req']
+    props: ['isOwner', 'req'],
+    computed: {
+      internetReq(){
+        return this.req.internet;
+      }
+    }
   }
 </script>
 

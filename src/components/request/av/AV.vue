@@ -5,16 +5,18 @@
     </div>
     <PresentVideo :av="avReq" :isOwner="isOwner"/>
     <Sound :av="avReq" :isOwner="isOwner"/>
+    <drape :av="avReq" :is-owner="isOwner"/>
   </div>
 </template>
 
 <script>
   import PresentVideo from "@/components/request/av/PresentVideo";
   import Sound from "@/components/request/av/Sound";
+  import Drape from "@/components/request/av/Drape";
 
   export default {
     name: "AV",
-    components: {Sound, PresentVideo},
+    components: {Drape, Sound, PresentVideo},
     props: ['isOwner', 'req'],
     computed: {
       avReq(){

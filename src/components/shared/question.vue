@@ -8,7 +8,7 @@
         :options="options"
         value-field="item"
         text-field="name"
-        id="audioForm"
+        :id="selectName"
         class="ml-5"
         required
         :disabled="!isOwner"

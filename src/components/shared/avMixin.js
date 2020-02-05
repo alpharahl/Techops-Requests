@@ -2,7 +2,7 @@ import firebase from "firebase";
 import _ from 'lodash';
 
 export default {
-  props: ['av', 'isOwner'],
+  props: ['av', 'isOwner', 'section'],
   data() {
     return {
       selected: null,
@@ -22,7 +22,7 @@ export default {
       values[desc] = this.description
       firebase
         .database()
-        .ref('requests/' + this.$route.params.id + '/av')
+        .ref('requests/' + this.$route.params.id + '/' + this.section)
         .update(values, (error) => {
           if (error){
             console.log(error)
@@ -40,7 +40,7 @@ export default {
       values[name] = this.selected;
       firebase
         .database()
-        .ref('requests/' + this.$route.params.id + '/av')
+        .ref('requests/' + this.$route.params.id + '/' + this.section)
         .update(values)
     }
   },
