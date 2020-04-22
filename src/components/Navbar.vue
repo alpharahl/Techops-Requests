@@ -2,7 +2,7 @@
   <b-navbar
     toggleable="md"
     type="dark"
-    variant="info"
+    variant="dark"
   >
     <b-navbar-toggle target="nav-collapse"/>
     <b-navbar-brand>

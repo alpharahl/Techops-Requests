@@ -64,5 +64,11 @@
 </script>
 
 <style scoped>
+  >>> .nav-link{
+    color: #fff;
+  }
 
+  >>> .nav-link.active{
+    color: #000
+  }
 </style>
