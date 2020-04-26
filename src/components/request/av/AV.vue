@@ -1,5 +1,13 @@
 <template>
   <div>
+    <div class="m-5 p-3 border">
+      Current Status:
+      <span v-if="avReq">
+        {{avReq.status}}
+      </span>
+      <span v-else>None</span>
+
+    </div>
     <div>
       Please tell us about any av (audio/visual) gear you will need to rent from us.
     </div>
