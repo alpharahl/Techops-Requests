@@ -37,6 +37,20 @@
         Admin
       </b-button>
     </div>
+    <div class="ml-2">
+      <b-button
+        v-if="office"
+        variant="success"
+        @click="toggleOffice"
+      >Office</b-button>
+      <b-button
+        v-else
+        variant="danger"
+        @click="toggleOffice"
+      >
+        Office
+      </b-button>
+    </div>
   </div>
 </template>
 
@@ -49,7 +63,8 @@
     data(){
       return {
         admin: false,
-        techops: false
+        techops: false,
+        office: false
       }
     },
 
@@ -79,6 +94,20 @@
               console.log(error);
             }
           })
+      },
+
+      toggleOffice(){
+        firebase
+          .database()
+          .ref(`office/${this.id}`)
+          .update({
+            value: !this.office
+          }, (error) => {
+            if (error){
+              alert('Something went wrong, please try again')
+              console.log(error)
+            }
+          })
       }
     },
 
@@ -95,6 +124,12 @@
         .ref('techops')
         .on('value', (snapshot) => {
           this.techops = snapshot.val()[this.id] ? snapshot.val()[this.id].value : false
+        })
+      firebase
+        .database()
+        .ref('office')
+        .on('value', (snapshot) => {
+          this.office = snapshot.val()[this.id] ? snapshot.val()[this.id].value : false
         })
     }
   }

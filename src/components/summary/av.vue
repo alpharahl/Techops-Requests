@@ -57,7 +57,7 @@
 
 <style scoped>
   .alternate{
-    background-color: rgba(26,26,26, 0.8);
+    background-color: rgba(55,55,55, 0.8);
     color: white;
   }
 </style>

@@ -4,32 +4,34 @@
     type="dark"
     variant="dark"
   >
-    <b-navbar-toggle target="nav-collapse"/>
     <b-navbar-brand>
       Techops Requests
     </b-navbar-brand>
 
-    <b-navbar-nav v-if="signedIn">
-      <b-nav-item :to="{name: 'myRequests'}">
-        My Requests
-      </b-nav-item>
+    <b-navbar-toggle target="nav-collapse"/>
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav v-if="signedIn">
+        <b-nav-item :to="{name: 'myRequests'}">
+          My Requests
+        </b-nav-item>
 
-      <b-nav-item :to="{name: 'reviewRequests'}" v-if="techops">
-        Review Requests
-      </b-nav-item>
-    </b-navbar-nav>
+        <b-nav-item :to="{name: 'reviewRequests'}" v-if="techops">
+          Review Requests
+        </b-nav-item>
+      </b-navbar-nav>
 
-    <b-navbar-nav class="ml-auto" v-if="signedIn">
-      <b-nav-item v-if="admin" :to="{name: 'admin'}">
-        Admin
-      </b-nav-item>
+      <b-navbar-nav class="ml-auto" v-if="signedIn">
+        <b-nav-item v-if="admin" :to="{name: 'admin'}">
+          Admin
+        </b-nav-item>
 
-      <b-nav-item>
-        <b-button size="sm" class="my-2 my-sm-0" @click="logout">
-          Logout
-        </b-button>
-      </b-nav-item>
-    </b-navbar-nav>
+        <b-nav-item>
+          <b-button size="sm" class="my-2 my-sm-0" @click="logout">
+            Logout
+          </b-button>
+        </b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
   </b-navbar>
 </template>
 
